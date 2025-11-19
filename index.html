@@ -1,98 +1,397 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <title>Formulário Abas</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FullFinder - Encontre o Posto Ideal</title>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="./style/style.css" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Ícones -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* ---------- PALETA DE CORES ---------- */
+    :root {
+      --vermelho: #E50914;
+      --preto: #111111;
+      --branco: #FFFFFF;
+      --cinza: #f4f4f4;
+    }
+
+    body {
+      background-color: var(--branco);
+      color: var(--preto);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding-top: 80px; /* compensar a navbar fixa */
+    }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      background: linear-gradient(90deg, var(--vermelho) 0%, #B4000F 100%);
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+    }
+    .navbar-brand {
+      color: var(--branco);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .navbar-brand span {
+      color: #FFD700; /* toque dourado sutil */
+    }
+    .nav-link {
+      color: var(--branco) !important;
+      margin-right: 10px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      color: #FFD700 !important;
+      transform: scale(1.05);
+    }
+
+    /* ---------- SEÇÕES ---------- */
+    section {
+      padding: 60px 20px;
+      min-height: 80vh;
+    }
+    .titulo-secao {
+      color: var(--vermelho);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+    }
+
+    /* ---------- BOTÕES ---------- */
+    .btn-fullfinder {
+      background-color: var(--vermelho);
+      color: var(--branco);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+    .btn-fullfinder:hover {
+      background-color: #b0070e;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-  <!-- <h2>Abas Dinâmicas</h2> -->
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#abertura">Abertura</a></li>
-    <li><a data-toggle="tab" href="#menu1">Dados Pessoais</a></li>
-    <li><a data-toggle="tab" href="#menu2">Dados Estudantis</a></li>
-    <li><a data-toggle="tab" href="#menu3">Dados Postais</a></li>
-    <li><a data-toggle="tab" href="#menu4">Tabela Dinâmica</a></li>
-    <li><a data-toggle="tab" href="#menu5">Carrousel</a></li>
-    <li><a data-toggle="tab" href="#menu6">Gráficos Dinâmicos</a></li>
-    <li><a data-toggle="tab" href="#menu7">LandPage do Projeto</a></li>
-    <li><a data-toggle="tab" href="#menu8">Localização</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="abertura" class="tab-pane fade in active">
-      <h2 style="text-align: center; font-size: xx-large;">Abertura do Projeto Abas </h2> 
-      <img src="./images/noticias.gif" alt="Abertura" style="width:60%;max-width:700px; margin-left: 30vw;">        
+  <!-- 🔻 NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fa-solid fa-gas-pump me-2"></i>Full<span>Finder</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#abertura">Abertura</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cadastro-pessoal">Cadastro Pessoal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cadastro-estudantil">Cadastro Estudantil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cadastro-postal">Cadastro Postal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tabela">Tabela Dinâmica</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carrossel">Carrossel</a></li>
+          <li class="nav-item"><a class="nav-link" href="#graficos">Gráficos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#landpage">LandPage</a></li>
+          <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <div id="menu1" class="tab-pane fade">
-      <figure>
-        <!-- <img src="./images/mapa.png" alt="Mapa de Localização" style="width:100%;max-width:600px"> -->
-        <img src="./images/pessoais.PNG" alt="Dados Pessoais" style="width:100%;max-width:1000px; margin-left: 20vw;">  
-        <figcaption>Figura 1: Dados Pessoais do Aluno</figcaption>  
-      </figure>
+  <!-- 🔻 SEÇÃO ABERTURA -->
+  <section id="abertura" class="text-center">
+    <div class="container">
+      <h2 class="titulo-secao">Bem-vindo ao FullFinder</h2>
+      <p class="lead">
+        O FullFinder é a sua plataforma inteligente para encontrar os melhores postos de combustível,
+        com foco em economia, conveniência e benefícios exclusivos. 🚗💨
+      </p>
+      <p>
+        Acompanhe preços, avalie o atendimento, participe de programas de cashback e descubra o posto ideal
+        onde quer que você esteja.
+      </p>
+      <a href="#cadastro-pessoal" class="btn btn-fullfinder mt-3">Começar Agora</a>
     </div>
+  </section>
 
-    <div id="menu2" class="tab-pane fade">
-      <!-- <h3>Ddos Postais</h3> -->
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
-
-    <div id="menu3" class="tab-pane fade">
-      <h3>Dados Postais</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-
-    <div id="menu4" class="tab-pane fade">
-      <h3>Tabela Dinâmica</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-
-    <div id="menu5" class="tab-pane fade">
-      <h3>Carrousel</h3>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-
-    <div id="menu6" class="tab-pane fade">
-      <h3>Gráficos</h3>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-    </div>
-
-    <div id="menu7" class="tab-pane fade">
-      <h3>LandPage do Projeto</h3>
-      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-
-    <div id="menu8" class="tab-pane fade">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="text-center">Lanchão Franca</h3>
-                <div class="text-center" style="margin-bottom: 20px;"> </div>
-                <div style="height: 70vh; width: 95vw; margin-left: 30px;" >
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2250.0439739756594!2d-47.387173633410725!3d-20.5353433476959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b0a61a2bab6353%3A0x747d97e57c257c46!2sEst%C3%A1dio%20Municipal%20Doutor%20Lancha%20Filho!5e1!3m2!1spt-BR!2sbr!4v1761671422141!5m2!1spt-BR!2sbr"      width="100%" 
-                        height="100%" 
-                        style="border:0; border-radius: 5px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  </div>
-</div>
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+  <!-- 🔻 SEÇÃO CADASTRO PESSOAL -->
+  <section id="cadastro-pessoal" class="p-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color:#E60000; font-weight:700;">CADASTRO PESSOAL</h2>
+    <p class="text-center mb-5" style="color:#333;">
+      Preencha seus dados para personalizar sua experiência no <strong>FullFinder</strong> e aproveitar todos os recursos da plataforma.
+    </p>
+
+    <form class="row g-3 justify-content-center">
+      <div class="col-md-6">
+        <label for="nome" class="form-label">Nome completo</label>
+        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="exemplo@email.com">
+      </div>
+
+      <div class="col-md-6">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" placeholder="Digite sua cidade">
+      </div>
+
+      <div class="col-md-6">
+        <label for="frase" class="form-label">Frase de perfil (opcional)</label>
+        <input type="text" class="form-control" id="frase" placeholder="Ex: Apaixonado por estradas e bom café 🚗🍵">
+      </div>
+
+      <div class="col-md-6">
+        <label for="foto" class="form-label">Foto de perfil (opcional)</label>
+        <input type="file" class="form-control" id="foto" accept="image/*">
+      </div>
+
+      <div class="col-md-10 text-center mt-4">
+        <button type="submit" class="btn btn-lg" style="background:linear-gradient(90deg,#E60000,#B80000); color:white; border:none; border-radius:10px; padding:10px 40px; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition:0.3s;">
+          Salvar Cadastro
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
 
 
+  <!-- 🔻 SEÇÃO CADASTRO ESTUDANTIL -->
+  <section id="cadastro-estudantil" style="background-color: var(--cinza);">
+    <div class="container">
+      <h2 class="titulo-secao text-center">Cadastro de Estudante – Descontos & Cashback</h2>
+      <p class="text-center mb-4">
+        Estudantes têm direito a benefícios exclusivos! Cadastre-se para receber <b>descontos em combustíveis</b> e
+        participar do nosso programa de <b>cashback</b> em postos parceiros. 🎓⛽
+      </p>
+
+      <form class="row g-3 justify-content-center">
+        <div class="col-md-5">
+          <label class="form-label">Nome Completo</label>
+          <input type="text" class="form-control" placeholder="Seu nome">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Instituição de Ensino</label>
+          <input type="text" class="form-control" placeholder="Nome da faculdade ou escola">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Matrícula</label>
+          <input type="text" class="form-control" placeholder="Número da matrícula estudantil">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">E-mail Institucional</label>
+          <input type="email" class="form-control" placeholder="seuemail@faculdade.com">
+        </div>
+        <div class="col-md-10 text-center mt-3">
+          <button type="submit" class="btn btn-fullfinder">Solicitar Benefício</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- 🔻 SEÇÃO CADASTRO POSTAL -->
+  <section id="cadastro-postal">
+    <div class="container">
+      <h2 class="titulo-secao text-center">Cadastro Postal</h2>
+      <p class="text-center mb-4">Informe o seu endereço principal para localizar os postos mais próximos.</p>
+
+      <form class="row g-3 justify-content-center">
+        <div class="col-md-4">
+          <label class="form-label">CEP</label>
+          <input type="text" class="form-control" placeholder="00000-000">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Endereço</label>
+          <input type="text" class="form-control" placeholder="Rua, número e complemento">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Bairro</label>
+          <input type="text" class="form-control" placeholder="Nome do bairro">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Cidade</label>
+          <input type="text" class="form-control" placeholder="Nome da cidade">
+        </div>
+        <div class="col-md-5">
+          <label class="form-label">Estado</label>
+          <select class="form-select">
+            <option selected>Selecione...</option>
+            <option>SP</option><option>RJ</option><option>MG</option><option>PR</option><option>RS</option>
+          </select>
+        </div>
+        <div class="col-md-10 text-center mt-3">
+          <button type="submit" class="btn btn-fullfinder">Salvar Endereço</button>
+        </div>
+      </form>
+    </div>
+  </section>
+    <!-- 🔻 SEÇÃO TABELA DINÂMICA -->
+  <!-- 🔻 SEÇÃO TABELA DINÂMICA (Atualizada) -->
+<section id="tabela" style="background-color: var(--cinza);">
+  <div class="container py-5">
+    <h2 class="titulo-secao text-center">Painel de Usuários e Engajamento</h2>
+    <p class="text-center mb-4">
+      Monitoramento do uso da plataforma e nível de interação dos usuários dentro do FullFinder.
+    </p>
+
+    <div class="table-responsive shadow-sm rounded-4">
+      <table class="table table-hover align-middle">
+        <thead style="background-color: var(--vermelho); color: var(--branco);">
+          <tr>
+            <th>Usuário</th>
+            <th>Avaliações Feitas</th>
+            <th>Média de Nota</th>
+            <th>Última Atividade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><i class="fa-solid fa-user me-2 text-danger"></i> João Pereira</td>
+            <td>18</td>
+            <td>4.7 ★</td>
+            <td>03/11/2025 - 14:25</td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-user me-2 text-danger"></i> Maria Santos</td>
+            <td>12</td>
+            <td>4.5 ★</td>
+            <td>02/11/2025 - 21:40</td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-user me-2 text-danger"></i> Carlos Almeida</td>
+            <td>9</td>
+            <td>4.9 ★</td>
+            <td>01/11/2025 - 10:12</td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-user me-2 text-danger"></i> Ana Costa</td>
+            <td>7</td>
+            <td>4.2 ★</td>
+            <td>30/10/2025 - 18:00</td>
+          </tr>
+          <tr>
+            <td><i class="fa-solid fa-user me-2 text-danger"></i> Rafael Souza</td>
+            <td>5</td>
+            <td>3.8 ★</td>
+            <td>29/10/2025 - 09:45</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+  <!-- 🔻 SEÇÃO CARROSSEL -->
+  <section id="carrossel">
+    <div class="container text-center">
+      <h2 class="titulo-secao">Carrossel de Imagens</h2>
+      <p>Veja alguns postos parceiros com estrutura moderna e atendimento 24h.</p>
+
+      <div id="carouselExample" class="carousel slide mt-4 shadow" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-4">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1607860108855-3f88f10405d3?auto=format&fit=crop&w=900&q=80"
+                 class="d-block w-100" alt="Posto 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1626771989136-4b8e28e7a536?auto=format&fit=crop&w=900&q=80"
+                 class="d-block w-100" alt="Posto 2">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1564053489984-317bbd824340?auto=format&fit=crop&w=900&q=80"
+                 class="d-block w-100" alt="Posto 3">
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔻 SEÇÃO GRÁFICOS -->
+  <section id="graficos" style="background-color: var(--cinza);">
+    <div class="container text-center">
+      <h2 class="titulo-secao">Gráficos de Consumo</h2>
+      <p>Visualize o consumo e economia média entre os usuários FullFinder. 📊</p>
+
+      <canvas id="graficoCombustivel" width="400" height="200"></canvas>
+    </div>
+  </section>
+
+  <!-- 🔻 SCRIPT CHART.JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('graficoCombustivel');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Gasolina', 'Etanol', 'Diesel', 'GNV'],
+        datasets: [{
+          label: 'Litros por Semana',
+          data: [35, 40, 60, 25],
+          backgroundColor: ['#E50914', '#F54242', '#FF8C00', '#222'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+  <!-- 🔻 SEÇÃO LANDPAGE -->
+  <section id="landpage">
+    <div class="container text-center py-5">
+      <h2 class="titulo-secao">Encontre o Posto Ideal 🚗</h2>
+      <p class="lead">Compare preços, veja avaliações e descubra o posto mais próximo com os melhores benefícios.</p>
+      <a href="#cadastro" class="btn btn-fullfinder mt-3">Cadastrar Agora</a>
+    </div>
+  </section>
+
+  <!-- 🔻 SEÇÃO LOCALIZAÇÃO -->
+  <section id="localizacao" style="background-color: var(--cinza);">
+    <div class="container text-center py-5">
+      <h2 class="titulo-secao">Localização</h2>
+      <p class="mb-4">Veja nossa base central e postos parceiros no mapa abaixo:</p>
+      <div class="ratio ratio-16x9 shadow-sm">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.879092445558!2d-47.40249768503333!3d-22.74668118509552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c927f086d321%3A0x1cf2bbd437acb826!2sPosto%20Ipiranga!5e0!3m2!1spt-BR!2sbr!4v1687640395416!5m2!1spt-BR!2sbr"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔻 RODAPÉ -->
+  <footer class="text-center py-4" style="background: var(--vermelho); color: white;">
+    <h5 class="mb-2">FullFinder © 2025</h5>
+    <p>Encontre combustível com o melhor preço e qualidade em segundos.</p>
+    <div class="social-icons mt-3">
+      <a href="#" style="color: white; margin: 0 10px;"><i class="bi bi-facebook"></i></a>
+      <a href="#" style="color: white; margin: 0 10px;"><i class="bi bi-instagram"></i></a>
+      <a href="#" style="color: white; margin: 0 10px;"><i class="bi bi-twitter-x"></i></a>
+    </div>
+  </footer>
+
+  <!-- ÍCONES BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
